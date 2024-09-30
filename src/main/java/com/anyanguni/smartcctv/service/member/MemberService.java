@@ -4,9 +4,11 @@ import com.anyanguni.smartcctv.DTO.member.MemberDTO;
 import com.anyanguni.smartcctv.domain.member.MemberEntity;
 import com.anyanguni.smartcctv.repository.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+
 
 @RequiredArgsConstructor
 @Service

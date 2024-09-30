@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 @EnableJpaRepositories(basePackages = "com.anyanguni.smartcctv.repository")
-@EntityScan(basePackages = "com.ananguni.smartcctv.domain")
 public class SmartCctvApplication {
 
 	public static void main(String[] args) {
