@@ -21,6 +21,15 @@ public class MemberController {
         return "member/login";
     }
 
+    @GetMapping("/notice")
+    public String notice(){
+        return "member/Notice";
+    }
+
+    @GetMapping("/helper")
+    public String helper(){
+        return "member/Support";
+    }
     @GetMapping("/member/Main")
     public String mainPage() {
         return "member/Main"; // 메인 페이지 뷰 반환
