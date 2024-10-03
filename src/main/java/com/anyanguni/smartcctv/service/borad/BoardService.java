@@ -1,6 +1,6 @@
 package com.anyanguni.smartcctv.service.borad;
 
-import com.anyanguni.smartcctv.DTO.board.BoardDTO;
+import com.anyanguni.smartcctv.DTO.board.BoardPostDTO;
 import com.anyanguni.smartcctv.domain.board.BoardEntity;
 import com.anyanguni.smartcctv.repository.board.BoardRepository;
 import lombok.Getter;
@@ -12,18 +12,18 @@ import org.springframework.stereotype.Service;
 public class BoardService {
     private final BoardRepository boardRepository;
 
-    public Long createBoard(BoardDTO boardDTO){
+    public Long createBoard(BoardPostDTO boardPostDTO){
         BoardEntity boardEntity = new BoardEntity();
-        boardEntity.setTitle(boardDTO.getTitle());
-        boardEntity.setContent(boardDTO.getContent());
+        boardEntity.setTitle(boardPostDTO.getTitle());
+        boardEntity.setContent(boardPostDTO.getContent());
 
         return boardRepository.save(boardEntity).getBoardid();
     }
 
-    public Long updateBoard(BoardDTO boardDTO, Long boardId){
+    public Long updateBoard(BoardPostDTO boardPostDTO, Long boardId){
         BoardEntity boardEntity = findBoardId(boardId);
-        boardEntity.setTitle(boardDTO.getTitle());
-        boardEntity.setTitle(boardDTO.getContent());
+        boardEntity.setTitle(boardPostDTO.getTitle());
+        boardEntity.setTitle(boardPostDTO.getContent());
 
         return boardRepository.save(boardEntity).getBoardid();
     }

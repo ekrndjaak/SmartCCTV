@@ -1,6 +1,6 @@
 package com.anyanguni.smartcctv.controller.borad;
 
-import com.anyanguni.smartcctv.DTO.board.BoardDTO;
+import com.anyanguni.smartcctv.DTO.board.BoardPostDTO;
 import com.anyanguni.smartcctv.service.borad.BoardService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -20,15 +20,15 @@ public class BoardController {
     private final BoardService boardService;
 
     @PostMapping
-    public ResponseEntity postBoard(@RequestBody @Validated BoardDTO boardDTO){
-        Long boardid = boardService.createBoard(boardDTO);
+    public ResponseEntity postBoard(@RequestBody @Validated BoardPostDTO boardPostDTO){
+        Long boardid = boardService.createBoard(boardPostDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(boardid);
     }
 
     @PatchMapping("/{boardId}")
     public ResponseEntity patchBoard(@PathVariable("boardId")Long boardId,
-                                     @RequestBody @Validated BoardDTO boardDTO){
-        boardService.updateBoard(boardDTO, boardId);
+                                     @RequestBody @Validated BoardPostDTO boardPostDTO){
+        boardService.updateBoard(boardPostDTO, boardId);
         return ResponseEntity.status(HttpStatus.OK).body(boardId);
     }
 
