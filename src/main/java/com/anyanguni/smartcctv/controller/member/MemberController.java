@@ -30,6 +30,7 @@ public class MemberController {
     public String helper(){
         return "member/Support";
     }
+
     @GetMapping("/member/Main")
     public String mainPage() {
         return "member/Main"; // 메인 페이지 뷰 반환
@@ -51,6 +52,7 @@ public class MemberController {
             return "redirect:/";
         }
     }
+
     @PostMapping("/member/save")    // name값을 requestparam에 담아온다
     public String save(@ModelAttribute MemberDTO memberDTO) {
         System.out.println("MemberController.save");
