@@ -5,11 +5,15 @@ import com.anyanguni.smartcctv.domain.member.MemberEntity;
 import com.anyanguni.smartcctv.service.member.MemberService;
 import lombok.RequiredArgsConstructor;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
@@ -18,7 +22,22 @@ public class MemberController {
     private final MemberService memberService;
     @GetMapping("/")
     public String home(){
-        return "member/login";
+        return "member/test";
+    }
+
+    @GetMapping("/predict")
+    public String predict(Model model) {
+        String url = "http://localhost:5000/predict";
+
+        // RestTemplate을 사용하여 Python API 호출
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<Map> response = restTemplate.getForEntity(url, null, Map.class);
+
+        // Python API로부터 받은 응답을 뷰로 전달
+        Map<String, Object> prediction = response.getBody();
+        model.addAttribute("prediction", prediction.get("prediction"));
+
+        return "member/result";
     }
 
     @GetMapping("/notice")

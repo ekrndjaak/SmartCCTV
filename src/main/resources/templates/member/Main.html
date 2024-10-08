@@ -88,7 +88,10 @@
 
     <div class="row mt-4">
         <div class="col-md-8">
-            <div class="cctv-video">CCTV 영상</div>
+            <!-- CCTV 스트림을 표시할 부분 -->
+            <div class="cctv-video">
+                <img src="http://127.0.0.1:5000/video_feed" alt="CCTV Stream" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
         </div>
         <div class="col-md-4">
             <button class="btn btn-outline-primary btn-custom">CCTV 로그</button>
