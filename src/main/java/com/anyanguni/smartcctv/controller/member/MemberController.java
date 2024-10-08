@@ -22,7 +22,7 @@ public class MemberController {
     private final MemberService memberService;
     @GetMapping("/")
     public String home(){
-        return "member/test";
+        return "member/login";
     }
 
     @GetMapping("/predict")
